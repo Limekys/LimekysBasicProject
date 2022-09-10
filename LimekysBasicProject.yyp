@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMProject",
+  "resourceVersion": "1.6",
+  "name": "LimekysBasicProject",
   "resources": [
     {"id":{"name":"spr_icon_event","path":"sprites/spr_icon_event/spr_icon_event.yy",},"order":10,},
     {"id":{"name":"fArial_en","path":"fonts/fArial_en/fArial_en.yy",},"order":1,},
@@ -53,28 +56,24 @@
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "Folders": [
-    {"folderPath":"folders/Graphics.yy","order":0,"resourceVersion":"1.0","name":"Graphics","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Sounds.yy","order":1,"resourceVersion":"1.0","name":"Sounds","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Graphics/Shaders.yy","order":3,"resourceVersion":"1.0","name":"Shaders","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Graphics/Fonts.yy","order":2,"resourceVersion":"1.0","name":"Fonts","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Game.yy","order":2,"resourceVersion":"1.0","name":"Game","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Rooms.yy","order":4,"resourceVersion":"1.0","name":"Rooms","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/UsefulTools.yy","order":5,"resourceVersion":"1.0","name":"UsefulTools","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Graphics/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Graphics/Sprites/Developer icons.yy","order":1,"resourceVersion":"1.0","name":"Developer icons","tags":[],"resourceType":"GMFolder",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Graphics","folderPath":"folders/Graphics.yy","order":0,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sounds","folderPath":"folders/Sounds.yy","order":1,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Shaders","folderPath":"folders/Graphics/Shaders.yy","order":3,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Fonts","folderPath":"folders/Graphics/Fonts.yy","order":2,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Game","folderPath":"folders/Game.yy","order":2,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Rooms","folderPath":"folders/Rooms.yy","order":4,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"UsefulTools","folderPath":"folders/UsefulTools.yy","order":5,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/Graphics/Sprites.yy","order":0,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Developer icons","folderPath":"folders/Graphics/Sprites/Developer icons.yy","order":1,},
   ],
   "AudioGroups": [
-    {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
+    {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
   ],
   "TextureGroups": [
-    {"isScaled":true,"compressFormat":"bz2","autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,"resourceVersion":"1.3","name":"Default","resourceType":"GMTextureGroup",},
+    {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","isScaled":true,"compressFormat":"bz2","autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,},
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2022.6.1.26",
+    "IDEVersion": "2022.8.0.34",
   },
-  "resourceVersion": "1.5",
-  "name": "LimekysBasicProject",
-  "tags": [],
-  "resourceType": "GMProject",
 }

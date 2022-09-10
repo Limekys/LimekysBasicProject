@@ -41,7 +41,7 @@ function _LimeGetCamera() {
 		self.camera_height_offset = 1.0;
 		
 		///@func Init(width, height, target_object)
-		static Init = function(width, height, target_object) {
+		static Init = function(width, height, target_object = undefined) {
 			self.start_width = width;
 			self.start_height = height;
 			self.width = width;
