@@ -1,5 +1,5 @@
-//Useful functions by Limekys
-#macro LIMEKYS_USEFUL_FUNCTIONS_VERSION "2022.08.30"
+//Useful functions by Limekys (This script has MIT Licence)
+#macro LIMEKYS_USEFUL_FUNCTIONS_VERSION "2022.09.11"
 
 #macro DT global.dt_steady
 
@@ -355,5 +355,20 @@ function IntervalUpdateFunction(name, seconds, _function, start_from = -1) {
 	if self[$ n1] >= self[$ n2] {
 		self[$ n1] -= self[$ n2];
 		_function();
+	}
+}
+
+///@arg {Array} _array
+function array_shuffle(_array) {
+	var _size = array_length(_array), i, j, k;
+	for (i = 0; i < _size; i++)
+	{
+	    j = irandom_range(i, _size - 1);
+	    if (i != j)
+	    {
+	        k = _array[i];
+	        _array[i] = _array[j];
+	        _array[j] = k;
+	    }
 	}
 }
