@@ -1,5 +1,5 @@
-//Simple Camera Manager by Limekys (requare UsefulFunctions script)
-#macro LIMEKYS_SIMPLE_CAMERA_VERSION "2022.07.23"
+//Simple Camera Manager by Limekys (require UsefulFunctions script)
+#macro LIME_CAMERA_MANAGER_VERSION "2023.01.28"
 #macro LIME_CAMERA _LimeGetCamera()
 
 function _LimeGetCamera() {
@@ -23,6 +23,7 @@ function _LimeGetCamera() {
 		self.y2 = self.y + self.height_half;
 		self.view_index = 0;
 		self.camera_view = view_camera[self.view_index];
+		self.smoothness = 8;
 		
 		self.debug_enabled = false;
 		
@@ -85,8 +86,8 @@ function _LimeGetCamera() {
 					self.target_x = self.target_object.x + self.x_offset;
 					self.target_y = self.target_object.y + self.y_offset;
 				}
-				self.x = SmoothApproachDelta(self.x, self.target_x, 8, 0);
-				self.y = SmoothApproachDelta(self.y, self.target_y, 8, 0);
+				self.x = SmoothApproachDelta(self.x, self.target_x, smoothness, 0);
+				self.y = SmoothApproachDelta(self.y, self.target_y, smoothness, 0);
 			}
 			
 			//Shaking
@@ -153,6 +154,12 @@ function _LimeGetCamera() {
 				self.shake_length = seconds;
 				self.shake_length_max = seconds;
 			}
+			return self;
+		}
+		
+		///@func SetSmoothness(value = 8)
+		static SetSmoothness = function(value = 8) {
+			smoothness = value;
 			return self;
 		}
 	}
