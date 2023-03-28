@@ -10,7 +10,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "UsefulTools",
-    "path": "folders/UsefulTools.yy",
+    "path": "folders/Limekys/UsefulTools.yy",
   },
   "parentObjectId": null,
   "persistent": true,
