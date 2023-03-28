@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "UsefulFunctions",
+  "name": "LimekysSimpleCamera",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
