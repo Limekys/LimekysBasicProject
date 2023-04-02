@@ -1,5 +1,5 @@
 //Simple Camera Manager by Limekys (require UsefulFunctions script) (This script has MIT Licence)
-#macro LIME_CAMERA_MANAGER_VERSION "2023.03.20"
+#macro LIME_CAMERA_MANAGER_VERSION "2023.04.02"
 #macro LIME_CAMERA _LimeGetCamera()
 
 function _LimeGetCamera() {
@@ -35,6 +35,8 @@ function _LimeGetCamera() {
 		//Zoom
 		self.camera_zoom = 1.0;
 		self.camera_zoom_target = 1.0;
+		self.camera_zoom_max = 2.0;
+		self.camera_zoom_min = 0.1;
 		
 		//Debug camera view sizes
 		self.camera_width_offset = 1.0;
@@ -63,7 +65,7 @@ function _LimeGetCamera() {
 			
 			//Smoothnest zoom
 			if self.camera_zoom != self.camera_zoom_target {
-				self.camera_zoom = clamp(SmoothApproachDelta(self.camera_zoom, self.camera_zoom_target, 4), 0.1, 2.0);
+				self.camera_zoom = clamp(SmoothApproachDelta(self.camera_zoom, self.camera_zoom_target, 4), self.camera_zoom_min, self.camera_zoom_max);
 				
 				self.width = self.start_width / self.camera_zoom;
 				self.height = self.start_height / self.camera_zoom;
@@ -100,6 +102,12 @@ function _LimeGetCamera() {
 			camera_set_view_pos(self.camera_view, self.x - self.width_half, self.y - self.height_half);
 			
 			//Update camera vars position
+			self.x1 = self.x - self.width_half;
+			self.y1 = self.y - self.height_half;
+			self.x2 = self.x + self.width_half;
+			self.y2 = self.y + self.height_half;
+			
+			//Debug
 			if self.debug_enabled {
 				var _test_w = camera_get_view_width(self.camera_view);
 				var _test_h = camera_get_view_height(self.camera_view);
@@ -107,26 +115,25 @@ function _LimeGetCamera() {
 				self.y1 = self.y - _test_h*0.5;
 				self.x2 = self.x1 + _test_w;
 				self.y2 = self.y1 + _test_h;
-			} else {
-				self.x1 = self.x - self.width_half;
-				self.y1 = self.y - self.height_half;
-				self.x2 = self.x + self.width_half;
-				self.y2 = self.y + self.height_half;
+				
+				//if keyboard_check_pressed(vk_numpad6) self.camera_width_offset += 0.1;
+				//if keyboard_check_pressed(vk_numpad4) self.camera_width_offset -= 0.1;
+				//if keyboard_check_pressed(vk_numpad8) self.camera_height_offset += 0.1;
+				//if keyboard_check_pressed(vk_numpad2) self.camera_height_offset -= 0.1;
 			}
 			
-			//Debug
-			if keyboard_check_pressed(vk_numpad6) self.camera_width_offset += 0.1;
-			if keyboard_check_pressed(vk_numpad4) self.camera_width_offset -= 0.1;
-			if keyboard_check_pressed(vk_numpad8) self.camera_height_offset += 0.1;
-			if keyboard_check_pressed(vk_numpad2) self.camera_height_offset -= 0.1;
-			
-			if keyboard_check_pressed(vk_pageup) self.camera_zoom_target += 0.1;
-			if keyboard_check_pressed(vk_pagedown) self.camera_zoom_target -= 0.1;
+			if keyboard_check_pressed(vk_pageup) SetViewSize(self.camera_zoom_target + 0.1)
+			if keyboard_check_pressed(vk_pagedown) SetViewSize(self.camera_zoom_target - 0.1)
+		}
+		
+		///@func DrawDebug()
+		static DrawDebug = function() {
+			draw_rectangle(self.x1, self.y1, self.x2, self.y2, true);
 		}
 		
 		///@func SetViewSize(scale)
 		static SetViewSize = function(scale) {
-			self.camera_zoom_target = scale;
+			self.camera_zoom_target = clamp(scale, self.camera_zoom_min, self.camera_zoom_max);
 			return self;
 		}
 		
@@ -166,6 +173,11 @@ function _LimeGetCamera() {
 			self.max_distance = value;
 			return self;
 		}
+		
+		///@func DebugToggle()
+		static DebugToggle = function() {
+			self.debug_enabled = !self.debug_enabled;
+		}
 	}
 	static inst = new Camera();
     return inst;
@@ -181,8 +193,8 @@ function ObjectInView(offset = 32) {
 
 ///@func CheckInView(x1, y1, x2, y2, [offset])
 function CheckInView(x1, y1, x2, y2, offset = 0) {
-	return (x1 - offset <= LIME_CAMERA.x2
-	&& x2 + offset >= LIME_CAMERA.x1
-	&& y1 - offset <= LIME_CAMERA.y2
-	&& y2 + offset >= LIME_CAMERA.y1)
+	return (x2 + offset > LIME_CAMERA.x1
+	&& x1 - offset < LIME_CAMERA.x2
+	&& y2 + offset > LIME_CAMERA.y1
+	&& y1 - offset < LIME_CAMERA.y2)
 }

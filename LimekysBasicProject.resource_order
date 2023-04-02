@@ -4,9 +4,9 @@
     {"name":"Fonts","order":2,"path":"folders/Graphics/Fonts.yy",},
     {"name":"Shaders","order":3,"path":"folders/Graphics/Shaders.yy",},
     {"name":"Developer icons","order":1,"path":"folders/Graphics/Sprites/Developer icons.yy",},
+    {"name":"Limekys","order":6,"path":"folders/Limekys.yy",},
     {"name":"Rooms","order":4,"path":"folders/Rooms.yy",},
     {"name":"Sounds","order":1,"path":"folders/Sounds.yy",},
-    {"name":"Limekys","order":6,"path":"folders/Limekys.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"spr_icon_event","order":10,"path":"sprites/spr_icon_event/spr_icon_event.yy",},
