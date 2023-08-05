@@ -1,5 +1,7 @@
 ///@desc Init
 
+#macro DT global.dt_steady
+
 global.dt_steady = 0;
 global.dt_unsteady = 0;
 
