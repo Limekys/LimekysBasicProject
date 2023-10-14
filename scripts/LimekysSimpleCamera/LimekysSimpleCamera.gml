@@ -1,6 +1,6 @@
 //Simple Camera Manager by Limekys (require UsefulFunctions script) (This script has MIT Licence)
 //Dependencies: LimekysUsefulFunctions
-#macro LIME_CAMERA_MANAGER_VERSION "2023.05.14"
+#macro LIME_CAMERA_MANAGER_VERSION "2023.10.14"
 #macro LIME_CAMERA _LimeGetCamera()
 
 function _LimeGetCamera() {
@@ -55,6 +55,7 @@ function _LimeGetCamera() {
 			self.target_object = target_object;
 			self.camera_zoom = 1.0;
 			self.camera_zoom_target = 1.0;
+			self.shake = 0;
 			
 			camera_set_view_size(self.camera_view, self.width, self.height);
 			view_set_wport(self.view_index, self.width);
@@ -69,7 +70,7 @@ function _LimeGetCamera() {
 			
 			//Smooth zoom
 			if self.camera_zoom != self.camera_zoom_target {
-				self.camera_zoom = clamp(SmoothApproachDelta(self.camera_zoom, self.camera_zoom_target, 4), self.camera_zoom_min, self.camera_zoom_max);
+				self.camera_zoom = clamp(SmoothApproachDelta(self.camera_zoom, self.camera_zoom_target, 4, 0.0001), self.camera_zoom_min, self.camera_zoom_max);
 				
 				self.width = self.start_width / self.camera_zoom;
 				self.height = self.start_height / self.camera_zoom;
@@ -104,6 +105,9 @@ function _LimeGetCamera() {
 			
 			//Update view camera
 			camera_set_view_pos(self.camera_view, self.x - self.width_half, self.y - self.height_half);
+			
+			//Rotation //???//
+			//camera_set_view_angle(self.camera_view, self.target_object.phy_rotation);
 			
 			//Update camera vars position
 			self.x1 = self.x - self.width_half;
@@ -160,6 +164,13 @@ function _LimeGetCamera() {
 		static SetPosition = function(x, y) {
 			self.x = x;
 			self.y = y;
+			return self;
+		}
+		
+		///@func SetTarget(target_object)
+		///@desc Set target object
+		static SetTarget = function(target_object) {
+			self.target_object = target_object;
 			return self;
 		}
 		
