@@ -1,6 +1,6 @@
 //Simple Camera Manager by Limekys (require UsefulFunctions script) (This script has MIT Licence)
 //Dependencies: LimekysUsefulFunctions
-#macro LIME_CAMERA_MANAGER_VERSION "2023.10.14"
+#macro LIME_CAMERA_MANAGER_VERSION "2023.10.29"
 #macro LIME_CAMERA _LimeGetCamera()
 
 function _LimeGetCamera() {
@@ -38,6 +38,7 @@ function _LimeGetCamera() {
 		self.camera_zoom_target = 1.0;
 		self.camera_zoom_max = 2.0;
 		self.camera_zoom_min = 0.1;
+		self.camera_zoom_smoothness = 4;
 		
 		//Debug camera view sizes
 		self.camera_width_offset = 1.0;
@@ -70,7 +71,11 @@ function _LimeGetCamera() {
 			
 			//Smooth zoom
 			if self.camera_zoom != self.camera_zoom_target {
-				self.camera_zoom = clamp(SmoothApproachDelta(self.camera_zoom, self.camera_zoom_target, 4, 0.0001), self.camera_zoom_min, self.camera_zoom_max);
+				if self.camera_zoom_smoothness == 0 {
+					self.camera_zoom = clamp(self.camera_zoom_target, self.camera_zoom_min, self.camera_zoom_max);
+				} else {
+					self.camera_zoom = clamp(SmoothApproachDelta(self.camera_zoom, self.camera_zoom_target, self.camera_zoom_smoothness, 0.0001), self.camera_zoom_min, self.camera_zoom_max);
+				}
 				
 				self.width = self.start_width / self.camera_zoom;
 				self.height = self.start_height / self.camera_zoom;
@@ -85,14 +90,22 @@ function _LimeGetCamera() {
 			
 			//Follow target object
 			if self.target_object != undefined && instance_exists(self.target_object) {
-				self.x = SmoothApproachDelta(self.x, self.target_object.x + self.x_offset, self.smoothness, 0);
-				self.y = SmoothApproachDelta(self.y, self.target_object.y + self.y_offset, self.smoothness, 0);
+				if self.smoothness == 0 {
+					self.x = self.target_object.x;
+					self.y = self.target_object.y;
+				} else {
+					self.x = SmoothApproachDelta(self.x, self.target_object.x, self.smoothness, 0);
+					self.y = SmoothApproachDelta(self.y, self.target_object.y, self.smoothness, 0);
+				}
 				//Clamp max distance from target object
 				if point_distance(self.x, self.y, self.target_object.x, self.target_object.y) > self.max_distance {
 					var _dir = point_direction(self.target_object.x, self.target_object.y, self.x, self.y);
 					self.x = self.target_object.x + lengthdir_x(self.max_distance, _dir);
 					self.y = self.target_object.y + lengthdir_y(self.max_distance, _dir);
 				}
+				//Offset
+				self.x += self.x_offset;
+				self.y += self.y_offset;
 			}
 			
 			//Shaking
@@ -195,10 +208,18 @@ function _LimeGetCamera() {
 		}
 		
 		///@func SetSmoothness(value = 8)
-		///@desc Sets the camera smoothing value when zooming.
-		///The default setting is 8. Higher = Smoother.
+		///@desc Sets the camera smoothing value when moving
+		///The default setting is 8. Higher = Smoother. 0 = disable
 		static SetSmoothness = function(value = 8) {
 			self.smoothness = value;
+			return self;
+		}
+		
+		///@func SetZoomSmoothness(value = 4)
+		///@desc Sets the camera smoothing value when zooming
+		///The default setting is 8. Higher = Smoother. 0 = disable
+		static SetZoomSmoothness = function(value = 4) {
+			self.camera_zoom_smoothness = value;
 			return self;
 		}
 		
