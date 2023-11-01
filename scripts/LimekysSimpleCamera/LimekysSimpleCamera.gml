@@ -1,6 +1,6 @@
 //Simple Camera Manager by Limekys (require UsefulFunctions script) (This script has MIT Licence)
 //Dependencies: LimekysUsefulFunctions
-#macro LIME_CAMERA_MANAGER_VERSION "2023.10.29"
+#macro LIME_CAMERA_MANAGER_VERSION "2023.10.31"
 #macro LIME_CAMERA _LimeGetCamera()
 
 function _LimeGetCamera() {
@@ -51,6 +51,8 @@ function _LimeGetCamera() {
 			self.start_height = height;
 			self.width = width;
 			self.height = height;
+			self.x_offset = 0;
+			self.y_offset = 0;
 			self.width_half = floor(self.width / 2);
 			self.height_half = floor(self.height / 2);
 			self.target_object = target_object;
