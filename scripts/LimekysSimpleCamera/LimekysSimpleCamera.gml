@@ -1,6 +1,6 @@
 //Simple Camera Manager by Limekys (require UsefulFunctions script) (This script has MIT Licence)
 //Dependencies: LimekysUsefulFunctions
-#macro LIME_CAMERA_MANAGER_VERSION "2023.10.31"
+#macro LIME_CAMERA_MANAGER_VERSION "2023.11.21"
 #macro LIME_CAMERA _LimeGetCamera()
 
 function _LimeGetCamera() {
@@ -160,6 +160,12 @@ function _LimeGetCamera() {
 		static SetViewSize = function(scale) {
 			self.camera_zoom_target = clamp(scale, self.camera_zoom_min, self.camera_zoom_max);
 			return self;
+		}
+		
+		///@func GetViewSize()
+		///@desc Get zoom scale
+		static GetViewSize = function() {
+			return self.camera_zoom;
 		}
 		
 		///@func ZoomIn(amount)
