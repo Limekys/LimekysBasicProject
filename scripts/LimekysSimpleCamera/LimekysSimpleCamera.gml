@@ -40,6 +40,11 @@ function _LimeGetCamera() {
 		self.camera_zoom_min = 0.1;
 		self.camera_zoom_smoothness = 4;
 		
+		//Angle
+		self.camera_angle = 0;
+		self.camera_angle_target = 0;
+		self.camera_angle_smoothness = 8;
+		
 		//Debug camera view sizes
 		self.camera_width_offset = 1.0;
 		self.camera_height_offset = 1.0;
@@ -59,6 +64,8 @@ function _LimeGetCamera() {
 			self.camera_zoom = 1.0;
 			self.camera_zoom_target = 1.0;
 			self.shake = 0;
+			self.camera_angle = 0;
+			self.camera_angle_target = 0;
 			
 			camera_set_view_size(self.camera_view, self.width, self.height);
 			view_set_wport(self.view_index, self.width);
@@ -88,6 +95,16 @@ function _LimeGetCamera() {
 				camera_set_view_size(self.camera_view, self.width, self.height);
 				view_set_wport(self.view_index, self.width);
 				view_set_hport(self.view_index, self.height);
+			}
+			
+			//Smooth angle
+			if self.camera_angle != self.camera_angle_target {
+				if self.camera_angle_smoothness == 0 {
+					self.camera_angle = self.camera_angle_target;
+				} else {
+					self.camera_angle = SmoothApproachDelta(self.camera_angle, self.camera_angle_target, self.camera_angle_smoothness, 0.0001);
+				}
+				camera_set_view_angle(self.camera_view, self.camera_angle);
 			}
 			
 			//Follow target object
@@ -238,7 +255,14 @@ function _LimeGetCamera() {
 		///@func SetAngle(_angle = 0)
 		///@desc Sets camera angle
 		static SetAngle = function(_angle) {
-			camera_set_view_angle(self.camera_view, _angle);
+			self.camera_angle_target = _angle;
+			return self;
+		}
+		
+		///@func SetAngleSmoothness(_value = 2)
+		///@desc Sets camera angle smoothness
+		static SetAngleSmoothness = function(value) {
+			self.camera_angle_smoothness = value;
 			return self;
 		}
 		
