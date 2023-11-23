@@ -1,6 +1,6 @@
 //Simple Camera Manager by Limekys (require UsefulFunctions script) (This script has MIT Licence)
 //Dependencies: LimekysUsefulFunctions
-#macro LIME_CAMERA_MANAGER_VERSION "2023.11.21"
+#macro LIME_CAMERA_MANAGER_VERSION "2023.11.23"
 #macro LIME_CAMERA _LimeGetCamera()
 
 function _LimeGetCamera() {
@@ -121,9 +121,6 @@ function _LimeGetCamera() {
 			//Update view camera
 			camera_set_view_pos(self.camera_view, self.x - self.width_half, self.y - self.height_half);
 			
-			//Rotation //???//
-			//camera_set_view_angle(self.camera_view, self.target_object.phy_rotation);
-			
 			//Update camera vars position
 			self.x1 = self.x - self.width_half;
 			self.y1 = self.y - self.height_half;
@@ -235,6 +232,13 @@ function _LimeGetCamera() {
 		///@desc Sets the maximum distance of the camera from the target object
 		static SetMaxDistance = function(value = 512) {
 			self.max_distance = value;
+			return self;
+		}
+		
+		///@func SetAngle(_angle = 0)
+		///@desc Sets camera angle
+		static SetAngle = function(_angle) {
+			camera_set_view_angle(self.camera_view, _angle);
 			return self;
 		}
 		
