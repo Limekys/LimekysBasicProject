@@ -1,13 +1,13 @@
 {
   "FolderOrderSettings": [
-    {"name":"Objects","order":3,"path":"folders/Objects.yy",},
     {"name":"Fonts","order":2,"path":"folders/Graphics/Fonts.yy",},
     {"name":"Shaders","order":3,"path":"folders/Graphics/Shaders.yy",},
     {"name":"Developer icons","order":1,"path":"folders/Graphics/Sprites/Developer icons.yy",},
     {"name":"Limekys","order":5,"path":"folders/Limekys.yy",},
+    {"name":"Objects","order":3,"path":"folders/Objects.yy",},
     {"name":"Rooms","order":4,"path":"folders/Rooms.yy",},
-    {"name":"Sounds","order":1,"path":"folders/Sounds.yy",},
     {"name":"Scripts","order":2,"path":"folders/Scripts.yy",},
+    {"name":"Sounds","order":1,"path":"folders/Sounds.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"spr_icon_event","order":10,"path":"sprites/spr_icon_event/spr_icon_event.yy",},
