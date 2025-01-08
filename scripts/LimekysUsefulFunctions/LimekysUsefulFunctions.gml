@@ -1,5 +1,7 @@
+// Feather ignore all
+
 //Useful functions by Limekys (This script has MIT Licence)
-#macro LIMEKYS_USEFUL_FUNCTIONS_VERSION "2024.12.18"
+#macro LIMEKYS_USEFUL_FUNCTIONS_VERSION "2025.01.08"
 
 // Debug timers (used to test prerfomance)
 // add DEBUG_INIT_TIMER before code you want to test
@@ -88,11 +90,11 @@ function Wave(value1, value2, duration, offset) {
  * @param {real} [alpha] Description
  */
 function DrawSetText(color = undefined, font = undefined, haling = undefined, valing = undefined, alpha = undefined) {
-	if color != undefined draw_set_colour(color);
-	if font != undefined draw_set_font(font);
-	if haling != undefined draw_set_halign(haling);
-	if valing != undefined draw_set_valign(valing);
-	if alpha != undefined draw_set_alpha(alpha);
+	if !is_undefined(color) 	draw_set_colour(color);
+	if !is_undefined(font) 		draw_set_font(font);
+	if !is_undefined(haling) 	draw_set_halign(haling);
+	if !is_undefined(valing) 	draw_set_valign(valing);
+	if !is_undefined(alpha) 	draw_set_alpha(alpha);
 }
 
 /**
