@@ -1,6 +1,6 @@
 //Simple Camera Manager by Limekys (This script has MIT Licence)
 //Dependencies: LimekysUsefulFunctions, LimekysResolutionManager
-#macro LIME_CAMERA_MANAGER_VERSION "2025.02.25"
+#macro LIME_CAMERA_MANAGER_VERSION "2025.03.08"
 #macro LIME_CAMERA getLimeCamera()
 
 function getLimeCamera() {
@@ -20,7 +20,7 @@ function getLimeCamera() {
 		self.y2 = self.y + self.height_half;
 		self.view_index = 0;
 		self.camera_view = view_camera[self.view_index];
-		self.smoothness = 0.14;
+		self.smoothness = 0.1;
 		self.max_distance = 512;
 		
 		self.debug_enabled = false;
@@ -36,12 +36,12 @@ function getLimeCamera() {
 		self.camera_zoom_target = 1.0;
 		self.camera_zoom_max = 2.0;
 		self.camera_zoom_min = 0.1;
-		self.camera_zoom_smoothness = 0.7;
+		self.camera_zoom_smoothness = 0.1;
 		
 		// Angle
 		self.camera_angle = 0;
 		self.camera_angle_target = 0;
-		self.camera_angle_smoothness = 0.7;
+		self.camera_angle_smoothness = 0.1;
 		
 		// Debug camera view sizes
 		self.camera_width_offset = 1.0;
@@ -224,15 +224,15 @@ function getLimeCamera() {
 		}
 		
 		///@desc Sets the camera smoothing value when moving
-		///The default setting is 0.14. Higher = Smoother. 0 = disable
-		static setSmoothness = function(value = 0.14) {
+		///The default setting is 0.1. Higher = Smoother. 0 = disable
+		static setSmoothness = function(value = 0.1) {
 			self.smoothness = value;
 			return self;
 		}
 		
 		///@desc Sets the camera smoothing value when zooming
-		///The default setting is 0.7. Higher = Smoother. 0 = disable
-		static setZoomSmoothness = function(value = 0.7) {
+		///The default setting is 0.1. Higher = Smoother. 0 = disable
+		static setZoomSmoothness = function(value = 0.1) {
 			self.camera_zoom_smoothness = value;
 			return self;
 		}
@@ -250,8 +250,8 @@ function getLimeCamera() {
 		}
 		
 		///@desc Sets camera angle smoothness
-		///The default setting is 0.7. Higher = Smoother. 0 = disable
-		static setAngleSmoothness = function(value = 0.7) {
+		///The default setting is 0.1. Higher = Smoother. 0 = disable
+		static setAngleSmoothness = function(value = 0.1) {
 			self.camera_angle_smoothness = value;
 			return self;
 		}
