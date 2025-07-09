@@ -1,6 +1,6 @@
 //Simple Camera Manager by Limekys (This script has MIT Licence)
 //Dependencies: LimekysUsefulFunctions, LimekysResolutionManager
-#macro LIME_CAMERA_MANAGER_VERSION "2025.03.08"
+#macro LIME_CAMERA_MANAGER_VERSION "2025.07.02"
 #macro LIME_CAMERA getLimeCamera()
 
 function getLimeCamera() {
@@ -94,7 +94,7 @@ function getLimeCamera() {
 				// Smooth zoom
 				if self.camera_zoom != self.camera_zoom_target {
 					if self.camera_zoom_smoothness == 0 {
-						self.camera_zoom = clamp(self.camera_zoom_target, self.camera_zoom_max, self.camera_zoom_min);
+						self.camera_zoom = clamp(self.camera_zoom_target, self.camera_zoom_min, self.camera_zoom_max);
 					} else {
 						self.camera_zoom = clamp(SmoothApproachDelta(self.camera_zoom, self.camera_zoom_target, self.camera_zoom_smoothness, 0.0001), self.camera_zoom_min, self.camera_zoom_max);
 					}
