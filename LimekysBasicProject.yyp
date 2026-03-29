@@ -2,7 +2,7 @@
   "$GMProject":"v1",
   "%Name":"LimekysBasicProject",
   "AudioGroups":[
-    {"$GMAudioGroup":"","%Name":"audiogroup_default","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMAudioGroup":"v1","%Name":"audiogroup_default","exportDir":"","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
   ],
   "configs":{
     "children":[],
@@ -27,7 +27,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.11.0.179",
+    "IDEVersion":"2024.14.4.221",
   },
   "name":"LimekysBasicProject",
   "resources":[
@@ -35,6 +35,7 @@
     {"id":{"name":"fArial_ru","path":"fonts/fArial_ru/fArial_ru.yy",},},
     {"id":{"name":"oSteadyDeltaTime","path":"objects/oSteadyDeltaTime/oSteadyDeltaTime.yy",},},
     {"id":{"name":"rInit","path":"rooms/rInit/rInit.yy",},},
+    {"id":{"name":"LimekysResolutionManager","path":"scripts/LimekysResolutionManager/LimekysResolutionManager.yy",},},
     {"id":{"name":"LimekysSimpleCamera","path":"scripts/LimekysSimpleCamera/LimekysSimpleCamera.yy",},},
     {"id":{"name":"LimekysUsefulFunctions","path":"scripts/LimekysUsefulFunctions/LimekysUsefulFunctions.yy",},},
     {"id":{"name":"spr_icon_3dobject","path":"sprites/spr_icon_3dobject/spr_icon_3dobject.yy",},},

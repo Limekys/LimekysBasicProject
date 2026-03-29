@@ -11,6 +11,7 @@
   ],
   "ResourceOrderSettings":[
     {"name":"fArial_en","order":1,"path":"fonts/fArial_en/fArial_en.yy",},
+    {"name":"LimekysResolutionManager","order":3,"path":"scripts/LimekysResolutionManager/LimekysResolutionManager.yy",},
     {"name":"LimekysSimpleCamera","order":1,"path":"scripts/LimekysSimpleCamera/LimekysSimpleCamera.yy",},
     {"name":"LimekysUsefulFunctions","order":2,"path":"scripts/LimekysUsefulFunctions/LimekysUsefulFunctions.yy",},
     {"name":"spr_icon_animation","order":1,"path":"sprites/spr_icon_animation/spr_icon_animation.yy",},
