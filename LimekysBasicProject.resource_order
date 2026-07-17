@@ -14,6 +14,7 @@
     {"name":"LimekysResolutionManager","order":3,"path":"scripts/LimekysResolutionManager/LimekysResolutionManager.yy",},
     {"name":"LimekysSimpleCamera","order":1,"path":"scripts/LimekysSimpleCamera/LimekysSimpleCamera.yy",},
     {"name":"LimekysUsefulFunctions","order":2,"path":"scripts/LimekysUsefulFunctions/LimekysUsefulFunctions.yy",},
+    {"name":"VoliMusic","order":1,"path":"scripts/VoliMusic/VoliMusic.yy",},
     {"name":"spr_icon_animation","order":1,"path":"sprites/spr_icon_animation/spr_icon_animation.yy",},
     {"name":"spr_icon_audio","order":2,"path":"sprites/spr_icon_audio/spr_icon_audio.yy",},
     {"name":"spr_icon_camera","order":3,"path":"sprites/spr_icon_camera/spr_icon_camera.yy",},

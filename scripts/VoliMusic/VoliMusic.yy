@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"VoliMusic",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"VoliMusic",
+  "parent":{
+    "name":"Limekys",
+    "path":"folders/Limekys.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

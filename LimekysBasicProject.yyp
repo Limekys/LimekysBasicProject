@@ -27,7 +27,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.4.221",
+    "IDEVersion":"2026.0.0.16",
   },
   "name":"LimekysBasicProject",
   "resources":[
@@ -38,6 +38,7 @@
     {"id":{"name":"LimekysResolutionManager","path":"scripts/LimekysResolutionManager/LimekysResolutionManager.yy",},},
     {"id":{"name":"LimekysSimpleCamera","path":"scripts/LimekysSimpleCamera/LimekysSimpleCamera.yy",},},
     {"id":{"name":"LimekysUsefulFunctions","path":"scripts/LimekysUsefulFunctions/LimekysUsefulFunctions.yy",},},
+    {"id":{"name":"VoliMusic","path":"scripts/VoliMusic/VoliMusic.yy",},},
     {"id":{"name":"spr_icon_3dobject","path":"sprites/spr_icon_3dobject/spr_icon_3dobject.yy",},},
     {"id":{"name":"spr_icon_animation","path":"sprites/spr_icon_animation/spr_icon_animation.yy",},},
     {"id":{"name":"spr_icon_audio","path":"sprites/spr_icon_audio/spr_icon_audio.yy",},},
